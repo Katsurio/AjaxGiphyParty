@@ -1,0 +1,48 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  display: inline-block;
+  letter-spacing: -5px;
+  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.letter {
+  transition: color 2000ms;
+}
+
+input {
+  height: 2rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5%;
+}
+
+.btn-search {
+  background-color: rgb(34, 33, 33);
+  color: whitesmoke;
+}
+
+.btn-remove {
+  background-color: rgb(235, 22, 22);
+  color: whitesmoke;
+}
+
+.gif-img {
+}
