@@ -12,3 +12,31 @@ const intervalId = setInterval(function () {
     letter.style.color = randomRGB()
   }
 }, 2000)
+
+const form = document.querySelector('form')
+
+form.addEventListener('click', function (evt) {
+  const target = evt.target
+  const searchVal = document.querySelector('.gif-text').value
+  handleBtnClick(target.getAttribute('class'), searchVal)
+})
+
+async function getGiphy(term) {
+  const endpoint = `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`
+  const res = await axios.get(endpoint)
+  const { url } = res.data.data[0]
+}
+
+function handleBtnClick(att, search) {
+  if (att === 'btn-search') {
+    getGiphy(search)
+  }
+  if (att === 'btn-remove') {
+    removeGifs()
+  }
+}
+
+function removeGifs() {
+  const gifContainer = document.querySelector('.gif-container')
+  gifContainer.innerHTML = ''
+}
