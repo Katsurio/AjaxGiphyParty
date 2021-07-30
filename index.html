@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Giphy Party!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Giphy Party!</title>
-</head>
+  <body>
+    <div class="container">
+      <h1 class="title">
+        <span class="letter">G</span>
+        <span class="letter">I</span>
+        <span class="letter">P</span>
+        <span class="letter">H</span>
+        <span class="letter">Y</span>
+      </h1>
 
-<body>
+      <h1 class="title">
+        <span class="letter">P</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">T</span>
+        <span class="letter">Y</span>
+      </h1>
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.js"></script>
-<script src="app.js"></script>
-</body>
+      <form action="#" class="form">
+        <input type="text" class="gif-text" />
+        <input type="button" class="btn-search" value="Search Giphy" />
+        <input type="button" class="btn-remove" value="Remove Images" />
+      </form>
 
+      <div class="gif-container"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
