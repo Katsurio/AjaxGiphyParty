@@ -28,3 +28,20 @@ body {
 .letter {
   transition: color 2000ms;
 }
+
+input {
+  height: 2rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5%;
+}
+
+.btn-search {
+  background-color: rgb(34, 33, 33);
+  color: whitesmoke;
+}
+
+.btn-remove {
+  background-color: rgb(235, 22, 22);
+  color: whitesmoke;
+}
