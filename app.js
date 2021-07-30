@@ -31,7 +31,8 @@ async function getGiphy(term) {
       },
     }
     const res = await axios.get(endpoint, params)
-    const { url } = res.data.data[0].images.downsized
+    const randomIdx = Math.floor(Math.random() * res.data.data.length)
+    const { url } = res.data.data[randomIdx].images.downsized
     appendGif(url)
     form.reset()
   } catch (e) {
