@@ -1,4 +1,4 @@
-function randomRGB() {
+const randomRGB = () => {
   const r = Math.floor(Math.random() * 0)
   const g = Math.floor(Math.random() * 256)
   const b = Math.floor(Math.random() * 256)
@@ -7,7 +7,7 @@ function randomRGB() {
 
 const letters = document.querySelectorAll('.letter')
 
-const intervalId = setInterval(function () {
+const intervalId = setInterval(() => {
   for (let letter of letters) {
     letter.style.color = randomRGB()
   }
@@ -22,12 +22,24 @@ form.addEventListener('click', function (evt) {
 })
 
 async function getGiphy(term) {
-  const endpoint = `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`
-  const res = await axios.get(endpoint)
-  const { url } = res.data.data[0]
+  try {
+    const endpoint = `http://api.giphy.com/v1/gifs/search`
+    const params = {
+      params: {
+        q: term,
+        api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym',
+      },
+    }
+    const res = await axios.get(endpoint, params)
+    const { url } = res.data.data[0].images.downsized
+    appendGif(url)
+    form.reset()
+  } catch (e) {
+    console.log(e.message)
+  }
 }
 
-function handleBtnClick(att, search) {
+const handleBtnClick = (att, search) => {
   if (att === 'btn-search') {
     getGiphy(search)
   }
@@ -36,7 +48,15 @@ function handleBtnClick(att, search) {
   }
 }
 
-function removeGifs() {
-  const gifContainer = document.querySelector('.gif-container')
-  gifContainer.innerHTML = ''
+const removeGifs = () => {
+  const gifbox = document.querySelector('.gifbox')
+  gifbox.innerHTML = ''
+}
+
+const appendGif = (url) => {
+  const gifImg = document.createElement('img')
+  gifImg.classList.add('gif-img')
+  gifImg.setAttribute('src', url)
+  const gifbox = document.querySelector('.gifbox')
+  gifbox.appendChild(gifImg)
 }
